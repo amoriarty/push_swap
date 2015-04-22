@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gettab.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/04/22 14:31:48 by alegent           #+#    #+#             */
+/*   Updated: 2015/04/22 14:33:09 by alegent          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int			*sorttab(int *tab, int len)
+static int						*sorttab(int *tab, int len)
 {
-	int			i;
-	int			o;
-	int			s;
+	int							i;
+	int							o;
+	int							s;
 
 	o = FALSE;
 	while (o == FALSE)
@@ -25,11 +37,11 @@ static int			*sorttab(int *tab, int len)
 	return (tab);
 }
 
-int				*gettab(t_node *node, int len)
+int								*gettab(t_node *node, int len)
 {
-	int			i;
-	int			*tab;
-	t_node			*tmp;
+	int							i;
+	int							*tab;
+	t_node						*tmp;
 
 	i = -1;
 	tmp = node;
