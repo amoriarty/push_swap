@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/04/22 14:37:13 by alegent           #+#    #+#             */
+/*   Updated: 2015/04/22 14:40:48 by alegent          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void				ontop(t_env *e, int value, int len)
+static void							ontop(t_env *e, int value, int len)
 {
-	int				i;
-	t_node				*tmp;
+	int								i;
+	t_node							*tmp;
 
 	i = 0;
 	tmp = e->a->begin;
@@ -29,20 +41,21 @@ static void				ontop(t_env *e, int value, int len)
 	}
 }
 
-void					sort(t_env *e, int len)
+void								sort(t_env *e, int len)
 {
-	int				i;
-	int				x;
-	int				*tab;
+	int								i;
+	int								x;
+	int								*tab;
 
 	i = -1;
 	x = len;
 	tab = gettab(e->a->begin, len);
-	while (x-- > 0)
+	while (x-- > 3)
 	{
 		ontop(e, tab[++i], len);
 		push(e, 'b');
 	}
-	while (len-- > 0)
+	lsort(e);
+	while (len-- > 3)
 		push(e, 'a');
 }
