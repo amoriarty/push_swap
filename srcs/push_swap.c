@@ -27,7 +27,11 @@ int					push_swap(t_env *e)
 		else if (len == 3)
 			lsort(e);
 		else
-			sort(e, len);
+		{
+			minimal(e);
+			if (!verifsort(e->a))
+				sort(e, len);
+		}
 		if (~(e->opt) & VERBOSE)
 			ft_putchar(EOL);
 	}

@@ -56,5 +56,6 @@ void							reverse_rotate(t_env *e, char c);
 void							sort(t_env *e, int len);
 void							lsort(t_env *e);
 int								*gettab(t_node *node, int len);
+void							minimal(t_env *e);
 
 #endif
