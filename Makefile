@@ -37,7 +37,8 @@ SRC_NAME= main.c \
 	  reverse_rotate.c \
 	  sort.c \
 	  lsort.c \
-	  gettab.c
+	  gettab.c \
+	  minimal.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 #OBJ BLOC
