@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 14:35:18 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/13 15:08:27 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:14:38 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int								main(int ac, char **av)
 	t_env						*e;
 
 	tmp = 0;
-	if (ac == 1)
+	if (ac <= 2)
 		ft_perror();
 	e = newenv();
 	if (!ft_strcmp(av[1], "-s") || !ft_strcmp(av[2], "-s"))
