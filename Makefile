@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/04/18 13:33:44 by alegent          ###   ########.fr        #
+#    Updated: 2015/05/13 14:12:24 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRC_NAME= main.c \
 	  minimal.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
-#OBJ BLOC
+#OBJ BLOCK
 #Do nothing here
 OBJ_PATH= obj/
 OBJ_NAME= $(SRC_NAME:.c=.o)
@@ -58,18 +58,24 @@ INC_PATH= includes/
 INC= -I $(INC_LIB) -I $(INC_PATH)
 
 #Once again, don't forget to includes librairy that you use !
+LFT= libft
+LINK= https://github.com/amoriarty/libft.git
 LIB= -L libft/ -lft
 
 #FRAMEWORK BLOC
 #Don't forget to add framework that you need !
 FRAMEWORK= 
 
-all: $(NAME)
+all: $(OGL) $(NAME)
 
-$(NAME): $(OBJ)
-	@make -C libft/ re
-	@make -C libft/ clean
-	@$(GCC) $(OBJ) $(INC) $(LIB) -o $(NAME)
+$(LFT):
+	@git submodule add -f $(LINK)
+	@git submodule update --rebase $(LFT)
+	@echo "submodule is in place."
+	@make -C $(LFT)
+
+$(NAME): $(LFT) $(OBJ)
+	@$(GCC) $(OBJ) $(INC) $(LIB) $(FRAMEWORK) -o $(NAME)
 	@echo "$(NAME) has been created."
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -77,19 +83,22 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(GCC) $(INC) -o $@ -c $<
 
 clean:
-	@make -C libft/ clean
+	@make -C $(LFT) clean
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
 	@echo "$(NAME) objects files are deleted."
 
 fclean: clean
-	@make -C libft/ fclean
 	@rm -rf $(NAME)
 	@echo "$(NAME) is deleted."
+	@git submodule deinit -f $(LFT)
+	@git rm -rf $(LFT)
+	@rm -rf $(LFT)
+	@echo "libft sources has been deleted."
 
 re: fclean all
 
-norme:
+norme: $(LFT)
 	@norminette $(INC_LIB)**.[ch]
 	@norminette $(SRC_PATH)**.[ch]
 	@norminette $(INC_PATH)**.[ch]
