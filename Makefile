@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/05/13 14:12:24 by alegent          ###   ########.fr        #
+#    Updated: 2015/05/13 14:14:37 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,24 +21,24 @@ NAME= push_swap
 # define all the .c file in the variable SRC NAME
 SRC_PATH= srcs/
 SRC_NAME= main.c \
+	  gettab.c \
+	  insertnode.c \
+	  lsort.c \
+	  lstlen.c \
+	  minimal.c \
 	  newenv.c \
 	  newlst.c \
 	  newnode.c \
-	  insertnode.c \
-	  verifdata.c \
-	  verifdouble.c \
-	  verifsort.c \
-	  push_swap.c \
-	  lstlen.c \
 	  print.c \
 	  push.c \
-	  swap.c \
-	  rotate.c \
+	  push_swap.c \
 	  reverse_rotate.c \
+	  rotate.c \
 	  sort.c \
-	  lsort.c \
-	  gettab.c \
-	  minimal.c
+	  swap.c \
+	  verifdata.c \
+	  verifdouble.c \
+	  verifsort.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 #OBJ BLOCK
@@ -66,7 +66,7 @@ LIB= -L libft/ -lft
 #Don't forget to add framework that you need !
 FRAMEWORK= 
 
-all: $(OGL) $(NAME)
+all: $(LFT) $(NAME)
 
 $(LFT):
 	@git submodule add -f $(LINK)

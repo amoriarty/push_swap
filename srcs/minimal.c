@@ -14,12 +14,6 @@
 
 void				minimal(t_env *e)
 {
-	if (e->a->begin->data > e->a->end->data)
-		reverse_rotate(e, 'a');
-	else if (e->a->begin->data < e->a->end->data)
-		rotate(e, 'a');
-	if (verifsort(e->a))
-		return ;
 	if (e->a->begin->data > e->a->begin->next->data)
 		swap(e, 'a');
 	else if (e->a->end->data < e->a->end->prev->data)
