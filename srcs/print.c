@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 14:36:14 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/13 14:55:14 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:18:27 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void				print(t_env *e, char *s)
 {
 	static int		already;
 
-	e->shots++;
+	if (s)
+		e->shots++;
 	if (e->opt & VERBOSE)
 	{
 		if (s)
