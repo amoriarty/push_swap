@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 14:33:15 by alegent           #+#    #+#             */
-/*   Updated: 2015/04/22 14:34:17 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:05:07 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 # define VERBOSE (1 << 0)
+# define SHOTS (1 << 1)
 
 typedef struct s_env			t_env;
 typedef struct s_lst			t_lst;
@@ -24,6 +25,7 @@ struct							s_env
 	t_lst						*a;
 	t_lst						*b;
 	int							opt;
+	int							shots;
 };
 
 struct							s_lst
@@ -39,7 +41,7 @@ struct							s_node
 	t_node						*prev;
 };
 
-t_env							*newenv(char *v);
+t_env							*newenv(void);
 t_lst							*newlst(void);
 t_node							*newnode(int data);
 t_lst							*insertnode(t_lst *lst, int data);

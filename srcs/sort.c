@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 14:37:13 by alegent           #+#    #+#             */
-/*   Updated: 2015/04/22 14:40:48 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/13 14:48:12 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void							ontop(t_env *e, int value, int len)
 	{
 		if (tmp->data == value)
 		{
-			if (i < len / 2)
+			if (i <= len / 2)
 			{
 				while (e->a->begin->data != value)
 					rotate(e, 'a');
@@ -45,17 +45,23 @@ void								sort(t_env *e, int len)
 {
 	int								i;
 	int								x;
+	int								tmp;
 	int								*tab;
 
 	i = -1;
 	x = len;
+	tmp = 0;
 	tab = gettab(e->a->begin, len);
 	while (x-- > 3)
 	{
-		ontop(e, tab[++i], len);
+		ontop(e, tab[++i], lstlen(e->a));
 		push(e, 'b');
+		tmp++;
+		if (verifsort(e->a))
+			break ;
 	}
-	lsort(e);
-	while (len-- > 3)
+	if (len - tmp == 3)
+		lsort(e);
+	while (tmp-- > 0)
 		push(e, 'a');
 }

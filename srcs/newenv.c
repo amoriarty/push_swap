@@ -6,13 +6,13 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 14:39:15 by alegent           #+#    #+#             */
-/*   Updated: 2015/04/22 14:39:15 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:05:24 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_env								*newenv(char *v)
+t_env								*newenv(void)
 {
 	t_env							*new;
 
@@ -21,7 +21,6 @@ t_env								*newenv(char *v)
 	new->a = newlst();
 	new->b = newlst();
 	new->opt = 0;
-	if (!ft_strcmp(v, "-v"))
-		new->opt |= VERBOSE;
+	new->shots = 0;
 	return (new);
 }
